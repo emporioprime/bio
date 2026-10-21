@@ -98,9 +98,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-One Thirteen - [@onethirteen_co](https://x.com/onethirteen_co)
+Glayson Mendes - [@glaysonti](https://www.linkedin.com/in/glaysonti/)
 
-Project Link: [https://github.com/onethirteenco/link-in-bio](https://github.com/onethirteenco/link-in-bio)
+Project Link: [https://github.com/glaysonmendes/EmporioPrime](https://github.com/glaysonmendes/EmporioPrime)
 
 ### Disclaimer
 This README file was generated with AI and edited by a human.
