@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>One Thirteen | Links</title>
+    <title>Empório Prime</title>
     <meta name="description" content="A multi-faceted media production and software development company, established in 2025.">
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="One Thirteen | Links">
+    <meta property="og:title" content="Empório Prime">
     <meta property="og:description" content="A multi-faceted media production and software development company, established in 2025.">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="One Thirteen | Links">
+    <meta name="twitter:title" content="Empório Prime">
     <meta name="twitter:description" content="A multi-faceted media production and software development company, established in 2025.">
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
@@ -48,7 +48,7 @@
                 <img src="img/profileImage.png" alt="Empório Prime" class="profile-image">
             </div>
             <h1 class="profile-name">Empório Prime</h1>
-            <p class="profile-bio">Te indico produtos de qualidade com preço baixo<br>e frete grátis ou com desconto.</p>
+            <p class="profile-bio">Te indico produtos de qualidade com preço baixo e frete grátis ou com desconto.</p>
 
             <div class="social-links">
                 <a href="https://www.instagram.com/emporioprimeloja" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
@@ -65,10 +65,10 @@
                     <div class="link-description">Aproveite as ofertas!</div>
                 </div>
                 <div class="link-thumbnail">
-                    <img src="https://ik.imagekit.io/onethirteen/SF.CO/tlt_thumbnail.jpg" />
+                    <img src="https://ik.imagekit.io/emporio/profileImage-Dark.png" />
                 </div>
             </a>
-            <a href="hhttps://chat.whatsapp.com/IYjnjEc4SLw5BTk71IAejR?mode=ems_wa_t" class="link-item" data-category="film" target="_blank" rel="noopener noreferrer">
+            <a href="https://chat.whatsapp.com/IYjnjEc4SLw5BTk71IAejR?mode=ems_wa_t" class="link-item" data-category="film" target="_blank" rel="noopener noreferrer">
                 <div class="link-icon">
                     <i class="fas fa-film"></i>
                 </div>
@@ -77,9 +77,10 @@
                     <div class="link-description">Não fique de fora dessa, clique no link acima e venha comprar nas melhores lojas da Internet</div>
                 </div>
                 <div class="link-thumbnail">
-                    <img src="https://ik.imagekit.io/onethirteen/SF.CO/tlt_thumbnail.jpg" />
+                    <img src="https://ik.imagekit.io/emporio/profileImage-Dark.png" />
                 </div>
             </a>
+                        
             <a href="whatsapp.com/channel/0029Vb6nnYgG8l5DMezKtQ3d" class="link-item" data-category="film" target="_blank" rel="noopener noreferrer">
                 <div class="link-icon">
                     <i class="fas fa-film"></i>
@@ -89,7 +90,7 @@
                     <div class="link-description">Lá você não recebe notificações. Grupos nunca mais!</div>
                 </div>
                 <div class="link-thumbnail">
-                    <img src="https://ik.imagekit.io/onethirteen/SF.CO/tlt_thumbnail.jpg" />
+                    <img src="https://ik.imagekit.io/emporio/profileImage-Dark.png" />
                 </div>
             </a>
         </div>
@@ -156,90 +157,6 @@
             });
         }
 
-        // Tab filtering functionality
-        const tabButtons = document.querySelectorAll('.tab-button');
-        const linksContainer = document.querySelector('.links');
-        let linkItems = Array.from(document.querySelectorAll('.link-item'));
-
-        // Function to sort links by release date (newest first)
-        function sortLinksByDate(links) {
-            return links.sort((a, b) => {
-                const dateA = a.getAttribute('data-release-date');
-                const dateB = b.getAttribute('data-release-date');
-                if (!dateA && !dateB) return 0;
-                if (!dateA) return 1;
-                if (!dateB) return -1;
-                return new Date(dateB) - new Date(dateA);
-            });
-        }
-
-
-        // Initial sort by date
-        linkItems = sortLinksByDate(linkItems);
-        linkItems.forEach(link => linksContainer.appendChild(link));
-
-        // Function to apply tab filter
-        function applyTabFilter(selectedTab) {
-            // Get all links and sort by date
-            linkItems = Array.from(document.querySelectorAll('.link-item'));
-            linkItems = sortLinksByDate(linkItems);
-
-            let visibleItems = [];
-
-            if (selectedTab === 'latest') {
-                // Show top 2 from each category (film and software)
-                const filmItems = linkItems.filter(link => link.getAttribute('data-category') === 'film');
-                const softwareItems = linkItems.filter(link => link.getAttribute('data-category') === 'software');
-                
-                const topFilm = filmItems.slice(0, 2);
-                const topSoftware = softwareItems.slice(0, 2);
-                // Combine and sort by date (newest first)
-                visibleItems = sortLinksByDate([...topFilm, ...topSoftware]);
-
-                linkItems.forEach(link => {
-                    if (visibleItems.includes(link)) {
-                        link.classList.remove('hidden');
-                    } else {
-                        link.classList.add('hidden');
-                    }
-                });
-            } else {
-                // Filter by category and show all in that category
-                visibleItems = linkItems.filter(link => {
-                    const category = link.getAttribute('data-category');
-                    return selectedTab === category;
-                });
-
-                linkItems.forEach(link => {
-                    if (visibleItems.includes(link)) {
-                        link.classList.remove('hidden');
-                    } else {
-                        link.classList.add('hidden');
-                    }
-                });
-            }
-
-            // Reorder visible items by date (newest first)
-            visibleItems = sortLinksByDate(visibleItems);
-            visibleItems.forEach(link => {
-                linksContainer.appendChild(link);
-            });
-        }
-
-        // Initialize with Latest tab
-        applyTabFilter('latest');
-
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
-                button.classList.add('active');
-
-                const selectedTab = button.getAttribute('data-tab');
-                applyTabFilter(selectedTab);
-            });
-        });
     </script>
 </body>
 </html> 
