@@ -62,7 +62,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Glayson Mendes - [@glaysonti](https://www.linkedin.com/in/glaysonti/)
 
-Project Link: [https://github.com/glaysonmendes/EmporioPrime](https://github.com/glaysonmendes/EmporioPrime)
+Project Link: [https://github.com/emporioprime/bio](https://github.com/emporioprime/bio)
 
 ### Disclaimer
 This README file was generated with AI and edited by a human.
